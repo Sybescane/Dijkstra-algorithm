@@ -1,4 +1,3 @@
-
 *{
    box-sizing: border-box;
    padding: 0;
@@ -22,13 +21,7 @@ body{
    padding: 40px 20px;
 }
 
-.options{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
-button, input:not(:last-child){
+button{
    margin-right: 10px;
    padding: 5px;
 }
@@ -37,18 +30,27 @@ button{
 }
 input[type="text"]{
    width: 40px;
+   padding: 5px;
 }
 
-.container{
+.field{
+   position: relative;
    width: 95%;
    height: 300px;
    margin: 20px auto;
    background-color: #3a7935;
    border-radius: 8px;
    padding: 10px;
+   display: flex;
 }
 
 .vert{
+   position: absolute;
+   text-align: center;
+   line-height: 30px;
+   color: #fff;
+   width: 30px;
+   height: 30px;
    border-radius: 50%;
-   background-color:#fff;
+   background-color:black;
 }
