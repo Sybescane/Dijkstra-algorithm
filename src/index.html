@@ -11,21 +11,22 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-success">
    <div class="wrapper">
-      <div class="container d-flex justify-content-between ">
-         <button type="submit" class="btn btn-light"id="btn-add">Добавить вершину</button>
-         <button type="submit" class="btn btn-light" id="btn-create">Найти путь</button>
-         <label for="from-vert">from:</label>
-         <input type="text" id="from-vert">
-         <label for="to-vert">to:</label>
-         <input type="text" id="to-vert">
+      <div class="options">
+         <div class="opt-wrapper">
+            <button type="submit" class="btn btn-success" id="btn-add">Добавить вершину</button>
+            <button type="submit" class="btn btn-success" id="btn-create">Найти путь</button>
+            <label for="from-vert">From:</label>
+            <input type="text" id="from-vert">
+            <label for="to-vert">To:</label>
+            <input type="text" id="to-vert">
+         </div>
       </div>
-      <div class="field"></div>
+      <div class="bg-success" id="field">
+         <canvas id="canvas"></canvas>
+      </div>
    </div>
-
-
-
    <script src="index.js" ></script>
 </body>
 </html>
