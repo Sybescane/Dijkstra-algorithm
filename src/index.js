@@ -89,8 +89,12 @@ buttonCreate.addEventListener('click', () => {
    const startVert = Number(firstVertPath.value)
    const finishVert = Number(lastVertPath.value)
 
-   
-   console.log(graph.vertices)
-   console.log(graph.dijkstra(1))
+   if(graph.check(startVert, finishVert)){
+      console.log(graph.vertices)
+      // console.log(graph.dijkstra(startVert))
+      const result = graph.findShortestPath(startVert, finishVert)
+      console.log(result)
+      alert(`Кратчайший путь из ${startVert} в ${finishVert} вершину = ${result.distance} \n ${result.path}`)
+   }
 })
 
