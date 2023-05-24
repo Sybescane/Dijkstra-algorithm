@@ -24,27 +24,6 @@ export class Graph {
       return true
    }
 
-   // ToGraph(){
-   //    let graph = []
-   //    let entries = Object.entries(this.vertices)
-
-   //    for (let i = 0; i < entries.length; i++) {
-   //       graph[i] = []
-   //       for (let j = 0; j < entries.length; j++) {
-   //          graph[i].push(0)
-   //       }
-   //    }
-
-   //    for (let i = 0; i < entries.length; i++) {
-   //       let help = entries[i][1]
-   //       help.forEach(el => {
-   //          graph[i][el[0] - 1] = el[1]
-   //       });
-   //    }
-
-   //    return graph
-   // }
-
    findNearestVertex(distances, visited) {
       let minDistance = Infinity;
       let nearestVertex = null;
@@ -57,6 +36,24 @@ export class Graph {
       });
     
       return nearestVertex;
+    }
+
+    findShortestPath(startVertex, finishVertex) {
+      let result = this.dijkstra(startVertex);
+
+      let path = [];
+      
+      let currentVertex = finishVertex;
+      
+      while(currentVertex != startVertex) {
+        path.unshift(Number(currentVertex));
+        currentVertex = result.previous[currentVertex];
+      }
+      
+      path.unshift(startVertex);
+      const distance = result.distances[finishVertex]
+      path = path.join('->')
+      return {distance, path};
     }
 
    dijkstra(startVertex) {
@@ -108,7 +105,7 @@ export class Graph {
         handleVertex(activeVertex);
         activeVertex = this.findNearestVertex(distances, visited);
       }
-      
+      //  let path = this.findShortestPath(startVertex, finishVert, previous)
       return { distances, previous };
     }
 }
